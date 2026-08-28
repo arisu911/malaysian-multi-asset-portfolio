@@ -38,7 +38,10 @@ def render_correlation_page(
         st.plotly_chart(fig_heat, use_container_width=True, key="correlation_heatmap_chart")
 
         st.markdown("### 📋 Correlation Matrix Table")
-        st.dataframe(corr_matrix.style.format("{:.2f}").background_gradient(cmap="viridis", axis=None), use_container_width=True)
+        try:
+            st.dataframe(corr_matrix.style.format("{:.2f}").background_gradient(cmap="viridis", axis=None), use_container_width=True)
+        except Exception:
+            st.dataframe(corr_matrix.style.format("{:.2f}"), use_container_width=True)
 
         csv_corr = corr_matrix.to_csv().encode("utf-8")
         st.download_button(
