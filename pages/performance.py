@@ -49,7 +49,8 @@ def render_performance_page(
             st.dataframe(bm_table, hide_index=True, use_container_width=True)
 
             b1, b2, b3, b4 = st.columns(4)
-            b1.metric("Jensen's Alpha (α)", f"{bm_metrics['Jensen\'s Alpha (α)']:+.2f}%")
+            alpha_val = bm_metrics.get("Jensen's Alpha (α)", 0.0)
+            b1.metric("Jensen's Alpha (α)", f"{alpha_val:+.2f}%")
             b2.metric("Beta to Benchmark (β)", f"{bm_metrics['Beta (β)']:.2f}x")
             b3.metric("Tracking Error", f"{bm_metrics['Tracking Error']:.2f}%")
             b4.metric("Information Ratio", f"{bm_metrics['Information Ratio']:.2f}")
