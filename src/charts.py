@@ -5,7 +5,9 @@ Follows modern quantitative terminal design standards:
 - Vibrant institutional color palette (Cyan, Emerald, Amber, Crimson, Purple, Royal Blue)
 - Formatted tooltips, clear units, and dynamic currency labels (RM, $, S$, £, €, A$)
 """
-from typing import Dict, Any, List, Optional
+from __future__ import annotations
+
+from typing import Any, Dict, List, Optional, Tuple, Union
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
