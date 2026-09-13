@@ -225,12 +225,12 @@ $$\text{Sortino} = \frac{\text{CAGR} - r_f}{\sigma_{\text{downside}}}, \quad \te
 
 ### 4. Marginal and Percentage Risk Contribution (PRC)
 $$\text{MRC}_i = \frac{\left(\Sigma w\right)_i}{\sigma_p}$$
-$$\text{RC}_i = w_i \times \text{MRC}_i, \quad \text{PRC}_i = \frac{\text{RC}_i}{\sigma_p} \times 100\%$$
-$$\sum_{i=1}^N \text{PRC}_i = 100.0\%$$
+$$\text{RC}_i = w_i \times \text{MRC}_i, \quad \text{PRC}_i = \frac{\text{RC}_i}{\sigma_p} \times 100$$
+$$\sum_{i=1}^N \text{PRC}_i = 100.0$$
 
 ### 5. Historical Value-at-Risk (VaR) & Expected Shortfall (CVaR)
-- **1-Day $\text{VaR}_{95\%}$**: The 5th percentile worst daily return.
-- **1-Day $\text{CVaR}_{95\%}$**: The expected conditional average loss on days exceeding the $\text{VaR}_{95\%}$ threshold.
+- **1-Day $\text{VaR}_{0.95}$ (95%)**: The 5th percentile worst daily return.
+- **1-Day $\text{CVaR}_{0.95}$ (95%)**: The expected conditional average loss on days exceeding the $\text{VaR}_{0.95}$ threshold.
 
 ### 6. Diversification Ratio (DR) & Effective Number of Constituents (ENC)
 $$\text{DR} = \frac{\sum_{i=1}^N w_i \sigma_i}{\sigma_p} \ge 1.0$$
@@ -322,7 +322,7 @@ pytest tests/ -v
 ### Verified Test Cases
 - `test_returns.py`: CAGR mathematical accuracy and wealth index compounding.
 - `test_portfolio.py`: 3-asset toy portfolio daily returns, periodic rebalancing, and transaction cost deduction.
-- `test_risk.py`: Annualized volatility, Sharpe/Sortino ratios, and $\sum \text{PRC}_i = 100\%$ risk contribution validation.
+- `test_risk.py`: Annualized volatility, Sharpe/Sortino ratios, and $\sum \text{PRC}_i = 100$ (100%) risk contribution validation.
 - `test_currency.py`: Multi-currency cross rates and $(1+R_{\text{investor}}) = (1+R_{\text{local}})(1+R_{\text{FX}})$ compounding attribution.
 - `test_drawdowns.py`: High-water mark tracking, drawdown series, and recovery episode identification.
 - `test_allocation.py`: Portfolio weight validation and multi-dimensional exposure aggregation.
